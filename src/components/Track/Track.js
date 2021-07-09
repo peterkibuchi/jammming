@@ -3,11 +3,7 @@ import './Track.css';
 
 export class Track extends Component {
     renderAction() {
-        if (isRemoval) {
-            return <button className="Track-action">-</button>;
-        } else {
-            return <button className="Track-action">+</button>
-        }
+        return (isRemoval) ? "-" : "+";
     }
 
     render() {
