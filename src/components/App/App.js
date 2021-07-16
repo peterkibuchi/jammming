@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Spotify from '../../util/Spotify';
 import { SearchBar } from '../SearchBar/SearchBar';
 import { SearchResults } from '../SearchResults/SearchResults';
 import { Playlist } from '../Playlist/Playlist';
@@ -21,9 +22,17 @@ export class App extends Component {
             ],
         };
 
+        this.search = this.search.bind(this);
         this.addTrack = this.addTrack.bind(this);
         this.removeTrack = this.removeTrack.bind(this);
+        this.savePlaylist = this.savePlaylist.bind(this);
         this.updatePlaylistName = this.updatePlaylistName.bind(this);
+    }
+
+    search(query) {
+        Spotify.search(query).then((searchResults) => {
+            this.setState({searchResults: searchResults});
+        });
     }
 
     updatePlaylistName(name) {
@@ -48,13 +57,30 @@ export class App extends Component {
         this.setState({playlistTracks: playlistTracks});
     }
 
+    savePlaylist() {
+        const playlistName = this.state.playlistName;
+        const playlistTracks = this.state.playlistTracks;
+        const trackURIs = playlistTracks.map(savedTrack => savedTrack.uri);
+
+        Spotify.savePlaylist(playlistName, trackURIs).then(() => {
+            this.setState({
+                playlistName: "New Playlist",
+                playlistTracks: [],
+            })
+        })
+
+    }
+
     render() {
         return (
             <div>
                 <h1>Ja<span className="highlight">mmm</span>ing</h1>
                 <div className="App">
 
-                    <SearchBar />
+                    <SearchBar
+                        onSearch={this.search}
+                    />
+
                     <div className="App-playlist">
                         <SearchResults
                             searchResults={this.state.searchResults}
@@ -63,8 +89,9 @@ export class App extends Component {
                         <Playlist
                             playlistName={this.state.playlistName} 
                             playlistTracks={this.state.playlistTracks}
-                            onRemove={this.removeTrack}
                             onNameChange={this.updatePlaylistName}
+                            onRemove={this.removeTrack}
+                            onSave={this.savePlaylist}
                         />
                     </div>
 
