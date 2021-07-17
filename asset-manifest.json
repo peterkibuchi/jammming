@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/jammming/static/css/main.4056acc8.chunk.css",
+    "main.js": "/jammming/static/js/main.bd0fde02.chunk.js",
+    "main.js.map": "/jammming/static/js/main.bd0fde02.chunk.js.map",
+    "runtime-main.js": "/jammming/static/js/runtime-main.1d90f459.js",
+    "runtime-main.js.map": "/jammming/static/js/runtime-main.1d90f459.js.map",
+    "static/js/2.627d05f8.chunk.js": "/jammming/static/js/2.627d05f8.chunk.js",
+    "static/js/2.627d05f8.chunk.js.map": "/jammming/static/js/2.627d05f8.chunk.js.map",
+    "index.html": "/jammming/index.html",
+    "static/css/main.4056acc8.chunk.css.map": "/jammming/static/css/main.4056acc8.chunk.css.map",
+    "static/js/2.627d05f8.chunk.js.LICENSE.txt": "/jammming/static/js/2.627d05f8.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/jammming/static/media/background.fe3a0bed.webp"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1d90f459.js",
+    "static/js/2.627d05f8.chunk.js",
+    "static/css/main.4056acc8.chunk.css",
+    "static/js/main.bd0fde02.chunk.js"
+  ]
+}
