@@ -8,7 +8,7 @@ const Spotify = {
             return accessToken;
         }
 
-        // check for access token and expiry in url
+        // Check for access token and expiry duration in the url
         const url = window.location.href;
         const accessTokenMatch = url.match(/access_token=([^&]*)/);
         const expiryMatch = url.match(/expires_in=([^&]*)/);
@@ -24,8 +24,8 @@ const Spotify = {
 
             return accessToken;
         } else {
-            const accessURL = `https://accounts.spotify.com/authorize?client_id=${clientID}&
-                                response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`;
+            // Redirects user to a login page, after which they grant permissions to the app
+            const accessURL = `https://accounts.spotify.com/authorize?client_id=${clientID}&redirect_uri=${redirectURI}&response_type=token&scope=playlist-modify-private`;
             window.location = accessURL;
         }
     },
@@ -92,6 +92,7 @@ const Spotify = {
                             headers: headers,
                             body: JSON.stringify({
                                 name: name,
+                                public: false,
                             })
                         }
                     )

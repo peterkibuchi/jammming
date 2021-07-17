@@ -9,17 +9,9 @@ export class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            searchResults: [
-                {id: 293902, name: "Trees", artist: "Twenty One Pilots", album: "Vessel"},
-                {id: 318494, name: "Taxi Cab", artist: "Twenty One Pilots", album: "Twenty One Pilots"},
-                {id: 747388, name: "Mulberry Street", artist: "Twenty One Pilots", album: "Scaled and Icy"},
-                {id: 948743, name: "Ride", artist: "Twenty One Pilots", album: "Blurryface"},
-            ],
+            searchResults: [],
             playlistName: "My Playlist",
-            playlistTracks: [
-                {id: 293902, name: "Trees", artist: "Twenty One Pilots", album: "Vessel"},
-                {id: 948743, name: "Ride", artist: "Twenty One Pilots", album: "Blurryface"},
-            ],
+            playlistTracks: [],
         };
 
         this.search = this.search.bind(this);
@@ -30,19 +22,17 @@ export class App extends Component {
     }
 
     search(query) {
+        // Spotify.search() returns a promise that resolves to the search results
         Spotify.search(query).then((searchResults) => {
             this.setState({searchResults: searchResults});
         });
     }
 
-    updatePlaylistName(name) {
-        this.setState({playlistName: name});
-    }
-
+    // Checks whether track already exists in playlist. If it doesn't, it appends it.
     addTrack(track) {
         const playlistTracks = this.state.playlistTracks;
 
-        if (playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
+        if (playlistTracks.find((savedTrack) => savedTrack.id === track.id)) {
             return;
         } else {
             playlistTracks.push(track);
@@ -50,6 +40,7 @@ export class App extends Component {
         }
     }
 
+    // Filters out the given track and updates the state
     removeTrack(track) {
         let playlistTracks = this.state.playlistTracks;
 
@@ -57,11 +48,17 @@ export class App extends Component {
         this.setState({playlistTracks: playlistTracks});
     }
 
+    // Takes in a name uses it to update state
+    updatePlaylistName(name) {
+        this.setState({playlistName: name});
+    }
+
     savePlaylist() {
         const playlistName = this.state.playlistName;
         const playlistTracks = this.state.playlistTracks;
-        const trackURIs = playlistTracks.map(savedTrack => savedTrack.uri);
+        const trackURIs = playlistTracks.map((savedTrack) => savedTrack.uri);
 
+        // Saves the playlist to Spotify then resets state
         Spotify.savePlaylist(playlistName, trackURIs).then(() => {
             this.setState({
                 playlistName: "New Playlist",
