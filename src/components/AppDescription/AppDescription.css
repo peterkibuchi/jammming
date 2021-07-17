@@ -1,0 +1,19 @@
+.Description {
+    line-height: 1.6;
+    margin-bottom: 1.33rem;
+    padding-top: 3.33rem;
+    text-align: center;
+    width: 100%;
+}
+
+.Description p {
+    margin-bottom: 1rem;
+}
+
+.Description p a {
+    color: white;
+}
+
+.Description p a:hover {
+    color: #999;
+}

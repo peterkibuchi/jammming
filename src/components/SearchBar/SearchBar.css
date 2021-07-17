@@ -6,26 +6,6 @@
     margin-bottom: 5.33rem;
 }
 
-.SearchBar .description {
-    line-height: 1.6;
-    padding: 1rem 0;
-    margin-bottom: 1.33rem;
-    text-align: center;
-    width: 100%;
-}
-
-.SearchBar .description p {
-    margin-bottom: 1rem;
-}
-
-.SearchBar .description p a {
-    color: white;
-}
-
-.SearchBar .description p a:hover {
-    color: #999;
-}
-
 .SearchBar input {
     width: 287px;
     padding: .88rem 0;
