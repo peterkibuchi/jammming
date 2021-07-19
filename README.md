@@ -1,79 +1,56 @@
 # Jammming
-> Outline a brief description of your project.
+> Jammming is a web application that allows users to search the Spotify library, create a custom playlist, and save it to their Spotify account.
 > Live demo [_here_](https://peterkibuchi.github.io/jammming/).
 
 ## Table of Contents
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
 * [Features](#features)
-* [Setup](#setup)
-* [Usage](#usage)
 * [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
 * [Acknowledgements](#acknowledgements)
 * [Contact](#contact)
-<!-- * [License](#license) -->
+* [License](#license)
 
 
 ## General Information
-- Provide general information about your project here.
-- What problem does it (intend to) solve?
-- What is the purpose of your project?
-- Why did you undertake it?
+- Jammming is powered by the Spotify API.
+- I took on this project as a hands-on means of learning how to bring together knowledge of React components, passing state, requests and working with APIs to build a real world application.
 
 
 ## Technologies Used
-- Tech 1 - version 1.0
-- Tech 2 - version 2.0
-- Tech 3 - version 3.0
+- React
+- HTML & CSS
 
 
 ## Features
-List the ready features here:
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
-
-
-## Setup
-What are the project requirements/dependencies? Where are they listed? A *requirements.txt* or a *Pipfile.lock* file perhaps? Where is it located?
-
-Proceed to describe how to install / setup one's local environment / get started with the project.
-
-
-## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
-
-`write-your-code-here`
+- Allows one to search the Spotify library, create a custom playlist, name it, and save it to their Spotify account.
 
 
 ## Project Status
-Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
+Project is: _complete_.
 
 
 ## Room for Improvement
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
-
 Room for improvement:
-- Improvement to be done 1
-- Improvement to be done 2
+- Include preview samples for each track
+- Add a loading screen while playlist is saving
+- Update the access token logic to expire at exactly the right time, instead of setting expiration from when the user initiates their next search
+- Ensure playlist information doesn’t get cleared if a user has to refresh their access token
 
 To do:
-- Feature to be added 1
-- Feature to be added 2
+- Only display songs not currently present in the playlist in the search results
+- After user redirect on login, restoring the search term from before the redirect
+- Enable user to adjust the order of tracks in the playlist
 
 
 ## Acknowledgements
-Give credit here.
-- This project was inspired by...
-- This project was based on [this tutorial](https://www.example.com).
-- Many thanks to...
+- This is a challenge project on Codecademy's [Full Stack Engineer Career Path](https://www.codecademy.com/learn/paths/full-stack-engineer-career-path/).
 
 
 ## Contact
 Created by [Peter Kibuchi](https://www.peterkibuchi.com/).
 
 
-<!-- ## License -->
-<!-- This project is open source and available under the [... License](). -->
+## License
+This project is open source and available under the [MIT License](https://github.com/peterkibuchi/jammming/blob/main/LICENSE).
