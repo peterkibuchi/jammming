@@ -20,7 +20,6 @@
 
 ## Technologies Used
 - React
-- HTML & CSS
 
 
 ## Features
